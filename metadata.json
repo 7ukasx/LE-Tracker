@@ -1,0 +1,8 @@
+
+{
+  "name": "LE Tracker",
+  "description": "A modern, high-end financial tracker and planner featuring real-time insights, beautiful visualizations, and precise budgeting tools.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
