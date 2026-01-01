@@ -258,34 +258,7 @@ const Dashboard: React.FC<DashboardProps> = ({ transactions, budgets, savingGoal
             </div>
           </div>
 
-          {/* Monthly Comparison Bar Chart */}
-          <div className="bg-white dark:bg-black p-10 rounded-[3rem] border border-slate-100 dark:border-slate-900">
-            <div className="flex justify-between items-start mb-10">
-              <div>
-                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">{t.monthlyGrowth}</h3>
-                <p className="text-[10px] font-bold text-slate-300 mt-1">{t.performanceDesc}</p>
-              </div>
-              <BarChart3 size={20} className="text-slate-200" />
-            </div>
-            <div className="h-[250px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={performanceData}>
-                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#94a3b8', fontSize: 10, fontWeight: 700}} />
-                  <Tooltip 
-                    cursor={{fill: 'transparent'}}
-                    contentStyle={{backgroundColor: '#000', border: 'none', borderRadius: '12px', color: '#fff', fontSize: '10px'}} 
-                    itemStyle={{color: '#fff'}}
-                  />
-                  <Bar dataKey="expense" radius={[10, 10, 0, 0]}>
-                    {performanceData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={index === performanceData.length - 1 ? 'currentColor' : '#f1f5f9'} className={index === performanceData.length - 1 ? 'text-black dark:text-white' : 'text-slate-200 dark:text-zinc-800'} />
-                    ))}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-        </div>
+         
 
         <div className="space-y-8">
           {/* Budget Progress Vertical */}
