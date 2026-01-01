@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { 
   LayoutDashboard, 
@@ -212,6 +211,7 @@ const App: React.FC = () => {
     handleLogout();
   };
 
+  // NUR HIER ANZEIGEN: Landing Page
   if (showLanding && !currentUser) {
     return (
       <>
@@ -221,11 +221,9 @@ const App: React.FC = () => {
     );
   }
 
+  // HIER ENTFERNT: Auth Screen
   if (!currentUser) return (
-    <>
-      <AuthScreen onLogin={handleLogin} />
-      <ThemeToggle isDarkMode={isDarkMode} toggle={toggleTheme} />
-    </>
+    <AuthScreen onLogin={handleLogin} />
   );
 
   const NavItem = ({ id, label, icon: Icon }: { id: any, label: string, icon: any }) => (
@@ -269,7 +267,7 @@ const App: React.FC = () => {
   return (
     <div className="h-screen flex bg-[#fdfdfd] dark:bg-black transition-colors duration-500 font-inter text-black dark:text-white overflow-hidden">
       
-      <ThemeToggle isDarkMode={isDarkMode} toggle={toggleTheme} />
+      {/* HIER ENTFERNT: Globaler ThemeToggle */}
 
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden" onClick={() => setIsSidebarOpen(false)} />}
@@ -345,7 +343,7 @@ const App: React.FC = () => {
         </div>
       </main>
 
-      {/* Mobile Bottom Navigation with Prominent Central Plus Button */}
+      {/* Mobile Bottom Navigation */}
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border-t border-slate-100 dark:border-zinc-900 flex justify-around items-center px-4 py-3 pb-8 sm:pb-3">
         <BottomNavItem id="dashboard" label={profile.language === 'de' ? 'Start' : 'Home'} icon={Home} />
         <BottomNavItem id="transactions" label={profile.language === 'de' ? 'Umsätze' : 'Activity'} icon={Receipt} />
